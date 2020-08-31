@@ -1,0 +1,178 @@
+ClrText
+Lbl Start
+DefaultSetup
+Local c1,s1,s2,c2,c3,s3,c4,s4,c5,s5,c6,s6
+Clear_a_z
+Message "DH"
+SetDegree
+
+Input ι,"#Sistemas Referenciales","Ingrese"
+Input D,"Dh","Ingrese"
+{}⇒Resp
+for 1⇒i To ι:
+'Input q1,"q1", "Ingrese"
+Input Resp[i],"(1) junta Prismatica y (2) junta Rotacion"
+Next
+
+
+'Input q1,"q1", "Ingrese"
+'Input qa1,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
+'Input q2,"q2","Ingrese"
+'Input qa2,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
+'Input q3,"q3","Ingrese"
+'Input qa3,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
+
+
+
+
+
+{0,0,0,0,0}⇒E
+fill(0,1+ι,5)⇒Dh
+For 1⇒u To ι:
+i⇒Dh[1,1]
+θi⇒Dh[1,2]
+αi⇒Dh[1,3]
+di⇒Dh[1,4]
+ai⇒Dh[1,5]
+u⇒Dh[u+1,1]
+Next
+
+
+For 1⇒j To ι:
+D[j,1]⇒Dh[j+1,2]
+D[j,2]⇒Dh[j+1,3]
+D[j,3]⇒Dh[j+1,4]
+D[j,4]⇒Dh[j+1,5]
+Next
+
+{}⇒ListA
+For 1⇒k To ι:
+ExpToStr k,g
+ExpToStr k-1,h
+StrJoin h,g,d
+StrJoin "A",d,s
+simplify([[cos(Dh[1+k,2]),-cos(Dh[1+k,3])×sin(Dh[1+k,2]),sin(Dh[1+k,3])×sin(Dh[1+k,2]),Dh[1+k,5]×cos(Dh[1+k,2])],[sin(Dh[1+k,2]),cos(Dh[1+k,3])×cos(Dh[1+k,2]),-sin(Dh[1+k,3])×cos(Dh[1+k,2]),Dh[1+k,5]×sin(Dh[1+k,2])],[0,sin(Dh[1+k,3]),cos(Dh[1+k,3]),Dh[1+k,4]],[0,0,0,1]])⇒R
+R⇒#s
+ExpToStr R,a
+a⇒ListA[k]
+PrintNatural R,s
+Next
+
+{}⇒ListT
+A01⇒T01
+ExpToStr T01,mn
+mn⇒ListT[1]
+'PrintNatural T01,"T01"
+
+For 1⇒i To ι-1:
+ExpToStr i+1,g
+ExpToStr i-i,h
+StrJoin h,g,d
+StrJoin "T",d,s1l
+expand(simplify(StrToExp(ListT[i])×StrToExp(ListA[i+1])))⇒R1a
+R1a⇒#s1l
+ExpToStr R1a,l1s
+l1s⇒ListT[i+1]
+PrintNatural R1a,s1l
+Next
+
+fill(0,3,1)⇒P
+for 1⇒i To 3
+StrToExp(ListT[ι])⇒pos
+pos[i,4]⇒P[i,1]
+Next
+PrintNatural P,"P"
+
+
+fill(0,6,ι)⇒J
+fill(0,3,1)⇒zim1
+fill(0,3,1)⇒O₀
+fill(0,3,1)⇒O1
+StrToExp(ListT[ι])⇒Mzim1
+StrToExp(ListT[1])⇒Mzi1
+Mzim1[1,4]⇒On[1,1]
+Mzim1[2,4]⇒On[2,1]
+Mzim1[3,4]⇒On[3,1]
+Mzi1[1,3]⇒zim1[1,1]
+Mzi1[2,3]⇒zim1[2,1]
+Mzi1[3,3]⇒zim1[3,1]
+crossP(zim1,On-O₀)⇒ZO
+'Print ZO
+
+
+
+for 1⇒i To ι:
+StrToExp(ListT[i])⇒Tja
+
+if Resp[i]=1 
+Then
+Tja[1,3]⇒J[1,i]
+Tja[2,3]⇒J[2,i]
+Tja[3,3]⇒J[3,i]
+0⇒J[4,i]
+0⇒J[5,i]
+0⇒J[6,i]
+
+ElseIf Resp[i]=2
+Then
+if i=1
+Then
+'PrintNatural ZO,"ZO"
+ZO[1,1]⇒J[1,1]
+ZO[2,1]⇒J[2,1]
+ZO[3,1]⇒J[3,1]
+Tja[1,3]⇒J[4,1]
+Tja[2,3]⇒J[5,1]
+Tja[3,3]⇒J[6,1]
+'PrintNatural J,"J"
+Ifend
+
+if i>1
+Then
+StrToExp(ListT[i-1])⇒Tjam1
+fill(0,3,1)⇒zimen1
+Tja[1,3]⇒zimen1[1,1]
+Tja[2,3]⇒zimen1[2,1]
+Tja[3,3]⇒zimen1[3,1]
+fill(0,3,1)⇒Oim1
+Tjam1[1,4]⇒Oim1[1,1]
+Tjam1[2,4]⇒Oim1[2,1]
+Tjam1[3,4]⇒Oim1[3,1]
+crossP(zimen1,On-Oim1)⇒ZO1
+'PrintNatural zimen1,"zimen1"
+'PrintNatural On,"On"
+'PrintNatural Oim1,"Oim1"
+ZO1[1,1]⇒J[1,i]
+ZO1[2,1]⇒J[2,i]
+ZO1[3,1]⇒J[3,i]
+Tja[1,3]⇒J[4,i]
+Tja[2,3]⇒J[5,i]
+Tja[3,3]⇒J[6,i]
+IfEnd
+
+IfEnd
+Next
+'{}⇒coseno
+'{}⇒seno
+{}⇒angulos
+
+for 1⇒i To ι:
+ExpToStr i,s
+'ExpToStr k-1,h
+'StrJoin h,g,d
+StrJoin "θ",s,v
+v⇒angulos[i]
+StrJoin "c",s,alm
+StrJoin "s",s,alm1
+StrToExp(alm)⇒almn
+StrToExp(alm1)⇒almn1
+ExpToStr cos(strToExp(v)),almn
+ExpToStr sin(strToExp(v)),almn1
+J⇒Jose
+Next
+'J|cos(θ₁)=c1|sin(θ2)=s2⇒
+'PrintNatural v,"Velocidad P'"
+'PrintNatural Dh,"Denavit Hatemberg"
+'PrintNatural J,"Jacobiano"
+PrintNatural Jose,"Jacobiano"
+Goto Start
