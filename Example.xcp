@@ -194,3 +194,136 @@ expand(simplify(dJqq+J×qpp))⇒acel
 PrintNatural Jacob,"Jacobiano"
 PrintNatural vel,"Velocidad"
 PrintNatural acel,"Aceleracion"
+
+'------------------------------------
+'Input c1,"∆c₁","Ingrese"
+'Input c2,"∆c₂","Ingrese"
+'Input c3,"∆c₃","Ingrese"
+'Input I1,"I₁","Ingrese"
+'Input I2,"I₂","Ingrese"
+'Input I3,"I₃","Ingrese"
+[[0],[-0.5×l₁],[0]]⇒c1
+[[0],[0],[0.25×l₂]]⇒c2
+[[0],[0],[-0.5×l₃]]⇒c3
+inercia(Ma1×(1/12)×(3×R₁^2+l₁^2),0.5×Ma1×R₁^2,Ma1×(1/12)×(3×R₁^2+l₁^2))⇒I1
+inercia(Ma2×(1/12)×(6×R₂^2+l₂^2),Ma2×(1/12)×(6×R₂^2+l₂^2),Ma2×R₂^2)⇒I2
+inercia(Ma3×(1/12)×(l₃^2),Ma3×(1/12)×(l₃^2),0)⇒I3
+
+subMat(T01,1,1,3,3)⇒R01
+subMat(T02,1,1,3,3)⇒R02
+subMat(T03,1,1,3,3)⇒R03
+
+simplify(R01×I1×trn(R01))⇒D₁
+simplify(R02×I2×trn(R02))⇒D₂
+simplify(R03×I3×trn(R03))⇒D₃
+
+PrintNatural R01,"R01"
+PrintNatural R02,"R02"
+PrintNatural R03,"R03"
+PrintNatural I1,"I1"
+PrintNatural I2,"I2"
+PrintNatural I3,"I3"
+
+
+'----------------------------
+PrintNatural D₁,"D₁"
+PrintNatural D₂,"D₂"
+PrintNatural D₃,"D₃"
+
+'--------------------------------
+simplify(subMat(T01,1,4,3,4)+R01×c1)⇒c1q
+simplify(subMat(T02,1,4,3,4)+R02×c2)⇒c2q
+simplify(subMat(T03,1,4,3,4)+R03×c3)⇒c3q
+PrintNatural c1q,"c1q"
+PrintNatural c2q,"c2q"
+PrintNatural c3q,"c3q"
+
+
+'--------------------------------
+
+
+
+Jvq(c1q,Q[1],Q[2],Q[3])⇒J¹vq
+Jvq(c2q,Q[1],Q[2],Q[3])⇒J²vq
+Jvq(c3q,Q[1],Q[2],Q[3])⇒J³vq
+
+fill(0,3,3)⇒J¹wq
+Jacob[4,1]⇒J¹wq[1,1]
+Jacob[5,1]⇒J¹wq[2,1]
+Jacob[6,1]⇒J¹wq[3,1]
+
+fill(0,3,3)⇒J²wq
+J¹wq⇒J²wq
+Jacob[4,2]⇒J²wq[1,2]
+Jacob[5,2]⇒J²wq[2,2]
+Jacob[6,2]⇒J²wq[3,2]
+
+fill(0,3,3)⇒J³wq
+J²wq⇒J³wq
+Jacob[4,3]⇒J³wq[1,3]
+Jacob[5,3]⇒J³wq[2,3]
+Jacob[6,3]⇒J³wq[3,3]
+
+PrintNatural J¹vq,"J¹vq"
+PrintNatural J²vq,"J²vq"
+PrintNatural J³vq,"J³vq"
+PrintNatural J¹wq,"J¹wq"
+PrintNatural J²wq,"J²wq"
+PrintNatural J³wq,"J³wq"
+
+'-------------------------------------------
+
+simplify(trn(J¹vq)×Ma1×J¹vq+trn(J¹wq)×D₁×J¹wq)⇒D1q
+simplify(trn(J²vq)×Ma2×J²vq+trn(J²wq)×D₂×J²wq)⇒D2q
+simplify(trn(J³vq)×Ma3×J³vq+trn(J³wq)×D₃×J³wq)⇒D3q
+PrintNatural D1q,"D1q"
+PrintNatural D2q,"D2q"
+PrintNatural D3q,"D3q"
+
+'--------------------------------------------
+expand(Simplify(D1q+D2q+D3q))⇒Dq
+PrintNatural Dq,"Dq=D1q+D2q+D3q"
+[[θ₁‛],[θ₂‛],[d₃‛]]⇒qder
+0.5×trn(qder)×D1q×qder⇒Ec1
+0.5×trn(qder)×D2q×qder⇒Ec2
+0.5×trn(qder)×D3q×qder⇒Ec3
+expand(simplify(Ec1+Ec2+Ec3))⇒Eci
+Eci[1,1]⇒Ec
+PrintNatural Ec,"Ec"
+
+trn([[0],[0],[gravedad]])×Ma1×c1q⇒Ep1
+trn([[0],[0],[gravedad]])×Ma2×c2q⇒Ep2
+trn([[0],[0],[gravedad]])×Ma3×c3q⇒Ep3
+Ep1+Ep2+Ep3⇒Epo
+Epo[1,1]⇒Ep
+PrintNatural Ep,"Ep"
+
+Ec-Ep⇒Lagr
+
+'Input Qlan,"Parametros para lagrange","Ingrese"
+{θ₁,θ₂,d₃}⇒Qlan1
+{θ₁,θ₁‛,θ₁‛‛,θ₂,θ₂‛,θ₂‛‛,d₃,d₃‛,d₃‛‛}⇒Qlan
+PrintNatural Lagr,"Lagrange"
+'La(Lagr,Qlan[1],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₁
+'La(Lagr,Qlan[6],Qlan[8],Qlan[4],Qlan[3],Qlan[5],Qlan[1],Qlan[7],Qlan[2],Qlan[9])⇒τ₂
+'La(Lagr,Qlan[7],Qlan[9],Qlan[5],Qlan[3],Qlan[4],Qlan[1],Qlan[6],Qlan[2],Qlan[8])⇒τ₃
+
+diff(Lagr,θ₁‛,1)⇒dth1prim
+diff(Lagr,θ₂‛,1)⇒dth2prim
+diff(Lagr,θ₃‛,1)⇒dth3prim
+'dthpri,F,expri,,ex1,ex1p,ex1pp,ex2,ex2p,ex2pp,ex3,ex3p,ex3pp
+' ex1pp*diff(dthpri,ex1p,1)+ex2pp*diff(dthpri,ex2p,1)+ex3pp*diff(dthpri,ex3p,1)+ex1p*diff(dthpri,ex1,1)+ex2p*diff(dthpri,ex2,1)+ex3p*diff(dthpri,ex3,1)-diff(F,expri,1)
+
+'Ejemplo 1er langrangiano: Lgr(dth1prim,Lagr,θ₁,θ₁,θ₁‛,θ₁‛‛,θ₂,θ₂‛,θ₂‛‛,d₃,d₃‛,d₃‛‛)
+
+Lag(dth1prim,Lagr,Qlan1[1],Qlan[1],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₁
+Lag(dth2prim,Lagr,Qlan1[2],Qlan[1],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₂
+Lag(dth3prim,Lagr,Qlan1[3],Qlan[7],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₃
+
+
+PrintNatural τ₁,"τ₁"
+PrintNatural τ₂,"τ₂"
+PrintNatural τ₃,"τ₃"
+
+
+Goto Start
