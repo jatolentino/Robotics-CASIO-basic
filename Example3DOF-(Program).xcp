@@ -4,6 +4,7 @@ DefaultSetup
 Clear_a_z
 Message "DH"
 SetDegree
+'------------------------------------
 
 Input ι,"#Sistemas Referenciales","Ingrese"
 [[θ₁,90,d₁,0],[θ₂,90,0,0],[0,0,d₃,0]]⇒D
