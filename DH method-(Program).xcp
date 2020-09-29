@@ -23,9 +23,6 @@ Next
 'Input qa3,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
 
 
-
-
-
 {0,0,0,0,0}⇒E
 fill(0,1+ι,5)⇒Dh
 For 1⇒u To ι:
