@@ -301,7 +301,7 @@ PrintNatural Ep,"Ep"
 
 Ec-Ep⇒Lagr
 
-'Input Qlan,"Parametros para lagrange","Ingrese"
+'Input Qlan,"Parametros para lagrange","Ingrese los paranetros de Lagrange"
 {θ₁,θ₂,d₃}⇒Qlan1
 {θ₁,θ₁‛,θ₁‛‛,θ₂,θ₂‛,θ₂‛‛,d₃,d₃‛,d₃‛‛}⇒Qlan
 PrintNatural Lagr,"Lagrange"
