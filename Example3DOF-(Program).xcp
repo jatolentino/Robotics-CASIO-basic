@@ -4,7 +4,7 @@ DefaultSetup
 Clear_a_z
 Message "DH"
 SetDegree
-'------------------------------------
+'-----------------------------------
 ' Add the DH table
 
 Input ι,"#Sistemas Referenciales","Ingrese"
