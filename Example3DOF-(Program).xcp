@@ -227,7 +227,7 @@ PrintNatural I2,"I2"
 PrintNatural I3,"I3"
 
 
-'----------------------------
+'--------------------------------
 PrintNatural D₁,"D₁"
 PrintNatural D₂,"D₂"
 PrintNatural D₃,"D₃"
