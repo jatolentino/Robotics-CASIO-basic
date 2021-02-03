@@ -322,7 +322,6 @@ Lag(dth1prim,Lagr,Qlan1[1],Qlan[1],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[
 Lag(dth2prim,Lagr,Qlan1[2],Qlan[1],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₂
 Lag(dth3prim,Lagr,Qlan1[3],Qlan[7],Qlan[2],Qlan[3],Qlan[4],Qlan[5],Qlan[6],Qlan[7],Qlan[8],Qlan[9])⇒τ₃
 
-
 PrintNatural τ₁,"τ₁"
 PrintNatural τ₂,"τ₂"
 PrintNatural τ₃,"τ₃"
