@@ -26,7 +26,6 @@ Input ι,"#Sistemas Referenciales","Ingrese"
 'Input q3,"q3","Ingrese"
 'Input qa3,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
 
-
 fill(0,1+ι,5)⇒Dh
 For 1⇒u To ι:
 i⇒Dh[1,1]
