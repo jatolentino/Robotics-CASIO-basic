@@ -327,5 +327,4 @@ PrintNatural τ₁,"τ₁"
 PrintNatural τ₂,"τ₂"
 PrintNatural τ₃,"τ₃"
 
-
 Goto Start
