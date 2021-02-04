@@ -2,7 +2,7 @@ ClrText
 Lbl Start
 DefaultSetup
 Clear_a_z
-Message "DH"
+Message "Denavit-Hartenberg method"
 SetDegree
 '-----------------------------------------
 ' Add the Denavit-Hartenberg table
