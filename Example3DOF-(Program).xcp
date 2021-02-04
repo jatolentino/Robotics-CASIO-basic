@@ -96,7 +96,6 @@ Mzim1[3,4]⇒On[3,1]
 1⇒zim1[3,1]
 crossP(zim1,On-O₀)⇒ZO
 
-
 for 1⇒i To ι:
 if Resp[i]=1 
 Then
