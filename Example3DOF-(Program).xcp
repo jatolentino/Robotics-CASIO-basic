@@ -18,7 +18,6 @@ Input ι,"#Sistemas Referenciales","Ingrese"
 'Input Resp[i],"(1) junta Pris''matica y (2) junta Rotacion"
 'Next
 
-
 'Input q1,"q1", "Ingrese"
 'Input qa1,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
 'Input q2,"q2","Ingrese"
