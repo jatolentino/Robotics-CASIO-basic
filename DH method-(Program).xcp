@@ -14,14 +14,12 @@ for 1⇒i To ι:
 Input Resp[i],"(1) junta Prismatica y (2) junta Rotacion"
 Next
 
-
 'Input q1,"q1", "Ingrese"
 'Input qa1,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
 'Input q2,"q2","Ingrese"
 'Input qa2,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
 'Input q3,"q3","Ingrese"
 'Input qa3,"Prismt o Rot","Ingrese (1) si es rotacional y (2) s'i la junta 'es prismatica"
-
 
 {0,0,0,0,0}⇒E
 fill(0,1+ι,5)⇒Dh
