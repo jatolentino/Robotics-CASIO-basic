@@ -239,7 +239,6 @@ PrintNatural c3q,"c3q"
 
 '--------------------------------
 
-
 Jvq(c1q,Q[1],Q[2],Q[3])⇒J¹vq
 Jvq(c2q,Q[1],Q[2],Q[3])⇒J²vq
 Jvq(c3q,Q[1],Q[2],Q[3])⇒J³vq
