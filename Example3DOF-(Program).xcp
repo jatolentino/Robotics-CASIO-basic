@@ -269,7 +269,6 @@ PrintNatural J²wq,"J²wq"
 PrintNatural J³wq,"J³wq"
 
 '-------------------------------------------
-
 simplify(trn(J¹vq)×Ma1×J¹vq+trn(J¹wq)×D₁×J¹wq)⇒D1q
 simplify(trn(J²vq)×Ma2×J²vq+trn(J²wq)×D₂×J²wq)⇒D2q
 simplify(trn(J³vq)×Ma3×J³vq+trn(J³wq)×D₃×J³wq)⇒D3q
