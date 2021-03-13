@@ -35,7 +35,6 @@ ai⇒Dh[1,5]
 u⇒Dh[u+1,1]
 Next
 
-
 For 1⇒j To ι:
 D[j,1]⇒Dh[j+1,2]
 D[j,2]⇒Dh[j+1,3]
