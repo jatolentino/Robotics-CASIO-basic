@@ -10,7 +10,6 @@ SetDegree
 Input ι,"#Sistemas Referenciales","Ingrese"
 [[θ₁,90,d₁,0],[θ₂,90,0,0],[0,0,d₃,0]]⇒D
 
-
 'Input D,"Dh","Ingrese"
 {2,2,1}⇒Resp
 {θ₁,θ₂,d₃}⇒Q
