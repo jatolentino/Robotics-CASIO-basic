@@ -59,6 +59,7 @@ Next
 A01⇒T01
 ExpToStr T01,mn
 mn⇒ListT[1]
+
 'PrintNatural T01,"T01"
 
 For 1⇒i To ι-1:
