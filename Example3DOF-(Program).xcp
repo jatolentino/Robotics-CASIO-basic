@@ -81,6 +81,7 @@ pos[i,4]⇒P[i,1]
 Next
 PrintNatural P,"P"
 
+
 fill(0,6,ι)⇒J
 fill(0,3,1)⇒zim1
 fill(0,3,1)⇒O₀
