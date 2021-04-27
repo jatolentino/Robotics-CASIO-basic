@@ -55,7 +55,6 @@ a⇒ListA[k]
 PrintNatural R,s
 Next
 
-
 {}⇒ListT
 A01⇒T01
 ExpToStr T01,mn
