@@ -1,2 +1,3 @@
 'Function used in the DH method
 [[diff(cq[1,1],Q1,1),diff(cq[1,1],Q2,1),diff(cq[1,1],Q3,1)],[diff(cq[2,1],Q1,1),diff(cq[2,1],Q2,1),diff(cq[2,1],Q3,1)],[diff(cq[3,1],Q1,1),diff(cq[3,1],Q2,1),diff(cq[3,1],Q3,1)]]
+
