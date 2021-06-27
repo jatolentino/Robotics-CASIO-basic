@@ -4,6 +4,7 @@ DefaultSetup
 Clear_a_z
 Message "Denavit-Hartenberg method"
 SetDegree
+
 '-----------------------------------------
 ' Add the Denavit-Hartenberg table
 
